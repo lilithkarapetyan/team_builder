@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
 import Login from '../../Components/Auth/Login/Login'
 import SignUp from '../../Components/Auth/SignUp/SignUp'
-import classes from './AuthContainer.module.css'
+import classes from './Auth.module.css'
 
 class AuthContainer extends Component {
     state = {

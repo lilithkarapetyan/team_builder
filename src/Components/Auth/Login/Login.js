@@ -31,7 +31,7 @@ class Login extends Component {
 
     onLogin = () => {
         console.log(this.props)
-        const { from } = this.props.location.state || { from: { pathname: "/home" } };
+        const { from } = this.props.location.state || { from: { pathname: "/topics" } };
         const history = this.props.history
         login(this.state.user).then(data => {
             this.props.userLoggedIn(data);
@@ -51,8 +51,9 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     console.log(state)
-    return { isAuth: !!state.token }
+    return { isAuth: !!state.auth.token }
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         userLoggedIn: (data) => dispatch(userLoggedIn(data))

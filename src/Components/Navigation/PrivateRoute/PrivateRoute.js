@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = (props) => (
-       
     <div>
-        {props.isAuth ? <>auth {props.children}</> :
+        {props.isAuth ? <Route {...props}/> :
             <Redirect to={{
                 pathname: "/auth",
                 state: { from: props.path }
@@ -13,7 +12,7 @@ const PrivateRoute = (props) => (
 );
 
 const mapStateToProps = (state) => {
-    return { isAuth: !!state.token }
+    return { isAuth: !!state.auth.token }
 }
 
 export default connect(mapStateToProps)(PrivateRoute);

@@ -3,8 +3,10 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import PrivateRoute from "./Components/Navigation/PrivateRoute/PrivateRoute"
 
 import NavLayout from './Containers/NavLayout/NavLayout';
-import AuthContainer from './Containers/AuthContainer/AuthContainer';
-// import Source from './Containers/Source/Source';
+import AuthContainer from './Containers/Auth/Auth';
+import TopicsContainer from './Containers/Topics/Topics';
+import ProjectsContainer from './Containers/Projects/Projects';
+import TeamsContainer from './Containers/Teams/Teams';
 
 class App extends Component {
   render() {
@@ -13,7 +15,9 @@ class App extends Component {
           <Switch>
             <Route path="/auth" component={AuthContainer} />
             <NavLayout>
-              <PrivateRoute path="/home" component={AuthContainer}/>
+              <PrivateRoute path="/topics" component={TopicsContainer}/>
+              <PrivateRoute path="/projects" component={ProjectsContainer}/>
+              <PrivateRoute path="/teams" component={TeamsContainer}/>
             </NavLayout>
             <Route path="/" render={() => (
               <Redirect to="/auth" />

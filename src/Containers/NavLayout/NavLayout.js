@@ -11,10 +11,19 @@ class NavLayout extends Component {
         showSideDrawer: false,
         showModal: false,
         searchText: '',
-        navItems: [{
-            name: "auth",
-            path: "/auth"
-        }]
+        navItems: [
+            {
+                name: "Topics",
+                path: "/topics"
+            },
+            {
+                name: "Projects",
+                path: "/projects"
+            },
+            {
+                name: "auth",
+                path: "/auth"
+            }]
     }
 
 
@@ -42,27 +51,27 @@ class NavLayout extends Component {
 
     render() {
         return (
-                <div style={{ padding: "60px 20px" }}>
-                    <Toolbar
-                        opened={this.sideDrawerToggleHandler}
-                        contactUsHandler={this.contactUsHandler}
-                        navItems={this.state.navItems}
-                        onSearch={this.onSearch} />
-                    <SideDrawer
-                        navItems={this.state.navItems}
-                        open={this.state.showSideDrawer}
-                        closed={this.sideDrawerClosedHandler}
-                        contactUsHandler={this.contactUsHandler} />
-                    <Modal
-                        show={this.state.showModal}
-                        clicked={this.contactUsHandler}>
-                        <ContactUs />
-                    </Modal>
-                    <main>
-                        {this.props.children}
-                    </main>
+            <div style={{ padding: "60px 20px" }}>
+                <Toolbar
+                    opened={this.sideDrawerToggleHandler}
+                    contactUsHandler={this.contactUsHandler}
+                    navItems={this.state.navItems}
+                    onSearch={this.onSearch} />
+                <SideDrawer
+                    navItems={this.state.navItems}
+                    open={this.state.showSideDrawer}
+                    closed={this.sideDrawerClosedHandler}
+                    contactUsHandler={this.contactUsHandler} />
+                <Modal
+                    show={this.state.showModal}
+                    clicked={this.contactUsHandler}>
+                    <ContactUs />
+                </Modal>
+                <main>
+                    {this.props.children}
+                </main>
 
-                </div>
+            </div>
         )
     }
 }

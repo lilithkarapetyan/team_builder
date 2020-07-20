@@ -1,9 +1,23 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { getUser } from './Actions/AuthActions'
-export const configStore = (reducer, middleware) => {
-    const token = window.sessionStorage.getItem("token");
-    const initState = { token };
-    const store = createStore(reducer, initState, middleware)
+import { applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
+import authReducer from './Reducers/AuthReducer'
+import dataReducer from './Reducers/DataReducer'
+
+export const configStore = () => {
+    const token = window.sessionStorage.getItem("token") || null;
+    const initState = {
+        auth: {
+            token
+        },
+        data: {}
+    };
+
+    console.log(authReducer)
+    const reducers = combineReducers({ auth: authReducer, data: dataReducer });
+    console.log(reducers)
+    const store = createStore(reducers, initState, applyMiddleware(thunk))
 
     if (token) {
         store.dispatch(getUser());
