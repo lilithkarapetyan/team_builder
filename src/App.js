@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PrivateRoute from "./Components/Navigation/PrivateRoute/PrivateRoute"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavLayout from './Containers/NavLayout/NavLayout';
+import AuthContainer from './Containers/AuthContainer/AuthContainer';
+// import Source from './Containers/Source/Source';
+
+class App extends Component {
+  render() {
+    return (
+      <div style={{height: "100%"}}>
+          <Switch>
+            <Route path="/auth" component={AuthContainer} />
+            <NavLayout>
+              <PrivateRoute path="/home" component={AuthContainer}/>
+            </NavLayout>
+            <Route path="/" render={() => (
+              <Redirect to="/auth" />
+            )} />
+          </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
