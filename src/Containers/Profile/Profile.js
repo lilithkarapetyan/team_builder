@@ -56,7 +56,6 @@ class Profile extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props, prevProps)
         if (this.props !== prevProps) {
             for (let key in this.props.user) {
                 if (this.state.user[key] !== this.props.user[key]) {
