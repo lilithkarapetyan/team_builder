@@ -1,4 +1,7 @@
-import { getUser as getUserData } from "../../Fetch/Users";
+import { getUser as getUserData,
+    logOutUser,
+    updateUser as updateUserInfo
+} from "../../Fetch/Users";
 
 export const userLoggedIn = (user) => ({
     type: 'userLoggedIn',
@@ -6,9 +9,7 @@ export const userLoggedIn = (user) => ({
 });
 
 export const getUser = () => {
-    console.log("getuser")
     return (dispatch) => {
-        console.log("getuser")
         getUserData().then(data => {
             dispatch(setUser(data))
         })
@@ -17,5 +18,30 @@ export const getUser = () => {
 
 const setUser = (user) => ({
     type: 'setUser',
+    payload: { user }
+})
+
+export const logOut = (payload) => {
+    return (dispatch) => {
+        logOutUser().then(data => {
+            dispatch(userLogOut())
+        })
+    }
+};
+
+const userLogOut = () => ({
+    type: 'userLogOut'
+})
+
+export const updateProfile = (payload) => {
+    return (dispatch) => {
+        updateUserInfo(payload).then(data => {
+            dispatch(userUpdate(data))
+        })
+    }
+};
+
+const userUpdate = (user) => ({
+    type: 'userUpdate',
     payload: { user }
 })

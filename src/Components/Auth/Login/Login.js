@@ -30,7 +30,6 @@ class Login extends Component {
     }
 
     onLogin = () => {
-        console.log(this.props)
         const { from } = this.props.location.state || { from: { pathname: "/topics" } };
         const history = this.props.history
         login(this.state.user).then(data => {
@@ -50,7 +49,6 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return { isAuth: !!state.auth.token }
 }
 

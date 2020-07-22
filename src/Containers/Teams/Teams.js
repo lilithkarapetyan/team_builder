@@ -3,26 +3,23 @@ import { connect } from 'react-redux'
 import { Button } from '@material-ui/core'
 
 import { getTeams } from '../../Store/Actions/DataActions'
-
+import Team from '../../Components/Team/Team'
 
 class Teams extends Component {
 
     componentDidMount() {
-        console.log(this.props)
         this.props.getTeams();
     }
     render() {
         return (
             <div>
-                teams
-                {this.props.teams.map(team => <p>{JSON.stringify(team)}</p>)}
+                {this.props.teams.map((team,i) => <Team data={team} key={i} />)}
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         teams: state.data.teams || []
     }

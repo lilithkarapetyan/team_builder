@@ -7,6 +7,7 @@ import AuthContainer from './Containers/Auth/Auth';
 import TopicsContainer from './Containers/Topics/Topics';
 import ProjectsContainer from './Containers/Projects/Projects';
 import TeamsContainer from './Containers/Teams/Teams';
+import ProfileContainer from './Containers/Profile/Profile';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
               <PrivateRoute path="/topics" component={TopicsContainer}/>
               <PrivateRoute path="/projects" component={ProjectsContainer}/>
               <PrivateRoute path="/teams" component={TeamsContainer}/>
+              <PrivateRoute path="/profile" component={ProfileContainer}/>
             </NavLayout>
             <Route path="/" render={() => (
               <Redirect to="/auth" />

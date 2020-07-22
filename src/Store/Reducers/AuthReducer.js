@@ -6,6 +6,12 @@ const authReducer = (state = {}, action) => {
         case 'setUser':
             state = setUser(state, action)
             break;
+        case 'userLogOut':
+            state = logOutUser(state, action)
+            break;
+        case 'userUpdate':
+            state = setUser(state, action)
+            break;
         default:
             break;
     }
@@ -27,6 +33,11 @@ const userLoggedIn = (state, action) => {
 
 const setUser = (state, action) => {
     return { ...state, user: action.payload.user }
+}
+
+const logOutUser = (state, action) => {
+    window.sessionStorage.removeItem("token")
+    return { ...state, user: null }
 }
 
 export default authReducer;

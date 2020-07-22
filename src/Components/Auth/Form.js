@@ -1,6 +1,4 @@
-import React, { Component, Fragment } from 'react';
-// import listClasses from '../EditableUsersList/editableUsersList.module.css';
-// import classes from './userForm.module.css';
+import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, MenuItem } from '@material-ui/core';
@@ -40,7 +38,7 @@ const Form = (props) => {
                                 <TextField key={type.id}
                                     label={type.title}
                                     required
-                                    value={props.user[type.id] || ""}
+                                    value={(props.user[type.id] || (props.user[type.id] === 0 ? 0 : ""))}
                                     onChange={(e) => props.onChange(type.id, e.target.value)}
                                     select={type.type === "select"}
                                     type = {type.type}>

@@ -36,7 +36,6 @@ class SignUp extends Component {
     componentDidMount() {
 
         getCompanies().then((data) => {
-            console.log(data)
             let i = this.state.fields.findIndex((item) => (
                 item.id === 'companyId'
             ))
@@ -70,8 +69,7 @@ class SignUp extends Component {
         user.jsExperience*=1;
         user.reactExperience*=1;
         register(user).then((data)=>{
-            console.log(data)
-            console.log("logged in")
+            this.props.signedIn();
         })
     }
 

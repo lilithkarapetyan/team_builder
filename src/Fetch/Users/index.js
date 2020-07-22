@@ -39,3 +39,29 @@ export const getUser = async () => {
         };
     }
 }
+
+export const updateUser = async (user) => {
+    try {
+        const res = await axios.put("/v1/users/update", user);
+        return res.data;
+    }
+    catch (e) {
+        return {
+            data: [],
+            error: e.message
+        };
+    }
+}
+export const logOutUser = async (user) => {
+    try {   
+        const res = await axios.get("/v1/users/logout");
+        return res.data;
+    }
+    catch (e) {
+        return {
+            data: [],
+            error: e.message
+        };
+    }
+}
+

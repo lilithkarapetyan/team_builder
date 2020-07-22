@@ -1,35 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Button } from '@material-ui/core'
 
-import { getProjects } from '../../Store/Actions/DataActions'
-
+import { getProjects, likeProject } from '../../Store/Actions/DataActions'
+import Project from '../../Components/Project/Project'
 
 class Projects extends Component {
 
     componentDidMount() {
-        console.log(this.props)
         this.props.getProjects();
     }
+
+    onLike = (project) => {
+        this.props.onProjectLike({
+            actionType: (project.votedByMe ? "unlike" : "like"),
+            projectId: project.id
+        })
+    }
+
     render() {
         return (
             <div>
-                projects
-                {this.props.projects.map(project => <p>{JSON.stringify(project)}</p>)}
+                {this.props.projects.map((project, i) =>
+                    <Project
+                        data={project}
+                        key={i}
+                        onLike={() => this.onLike(project)}
+                    />)}
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         projects: state.data.projects || []
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getProjects: () => dispatch(getProjects())
+        getProjects: () => dispatch(getProjects()),
+        onProjectLike: (payload) => dispatch(likeProject(payload))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

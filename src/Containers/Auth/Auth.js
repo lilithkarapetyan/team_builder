@@ -16,7 +16,7 @@ class AuthContainer extends Component {
     render() {
         let form = <Login {...this.props}/>
         if (!this.state.loginPage) {
-            form = <SignUp {...this.props}/>
+            form = <SignUp {...this.props} signedIn={() => this.setState({loginPage: true})}/>
         }
 
         return (

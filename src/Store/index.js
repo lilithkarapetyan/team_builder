@@ -14,9 +14,8 @@ export const configStore = () => {
         data: {}
     };
 
-    console.log(authReducer)
     const reducers = combineReducers({ auth: authReducer, data: dataReducer });
-    console.log(reducers)
+
     const store = createStore(reducers, initState, applyMiddleware(thunk))
 
     if (token) {
