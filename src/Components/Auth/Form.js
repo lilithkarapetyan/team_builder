@@ -38,6 +38,7 @@ const Form = (props) => {
                                 <TextField key={type.id}
                                     label={type.title}
                                     required
+                                    error={type.validation ? !type.validation(): false}
                                     value={(props.user[type.id] || (props.user[type.id] === 0 ? 0 : ""))}
                                     onChange={(e) => props.onChange(type.id, e.target.value)}
                                     select={type.type === "select"}

@@ -6,16 +6,16 @@ import Form from '../Form'
 import formClasses from '../Form.module.css'
 import { login } from '../../../Fetch/Users'
 import { userLoggedIn } from '../../../Store/Actions/AuthActions'
-
+import { validateEmail } from '../../../util';
 
 class Login extends Component {
     state = {
         fields: [
-            { id: "email", title: "E-mail", type: "email" },
+            { id: "email", title: "E-mail", type: "email", validation: () => validateEmail(this.state.user.email) },
             { id: "password", title: "Password", type: "password" }
         ],
         user: {
-            email: "",
+            email: undefined,
             password: ""
         }
     }

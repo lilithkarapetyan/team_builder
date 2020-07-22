@@ -3,24 +3,24 @@ import Form from '../Form'
 import { Button } from '@material-ui/core'
 import { getCompanies } from '../../../Fetch/Companies'
 import { register } from '../../../Fetch/Users'
-
+import { validateEmail } from '../../../util';
 
 class SignUp extends Component {
     state = {
         fields: [
-            { id: "email", title: "E-mail", type: "email" },
+            { id: "email", title: "E-mail", type: "email", validation: () => validateEmail(this.state.user.email) },
             { id: "password", title: "Password", type: "password" },
             { id: "firstName", title: "First Name", type: "text" },
             { id: "lastName", title: "Last name", type: "text" },
             { id: "birthDate", title: "Birth Date", type: "date" },
-            { id: "sex", title: "Gender", type: "select", options: [{id: 'male', name:'male'}, {id:'female', name:'female'}] },
+            { id: "sex", title: "Gender", type: "select", options: [{ id: 'male', name: 'male' }, { id: 'female', name: 'female' }] },
             { id: "avatarUrl", title: "Avatar Url", type: "text" },
             { id: "jsExperience", title: "JS Experience", type: "number" },
             { id: "reactExperience", title: "React Experience", type: "number" },
             { id: "companyId", title: "Company", type: "select", options: [] },
         ],
         user: {
-            email: "",
+            email: undefined,
             password: "",
             firstName: "",
             lastName: "",
@@ -63,12 +63,12 @@ class SignUp extends Component {
             }
         })
     }
-    
+
     onSignUp = () => {
-        const user = {...this.state.user}
-        user.jsExperience*=1;
-        user.reactExperience*=1;
-        register(user).then((data)=>{
+        const user = { ...this.state.user }
+        user.jsExperience *= 1;
+        user.reactExperience *= 1;
+        register(user).then((data) => {
             this.props.signedIn();
         })
     }

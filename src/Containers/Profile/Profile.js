@@ -5,14 +5,15 @@ import { Button } from '@material-ui/core'
 
 import { logOut, updateProfile } from '../../Store/Actions/AuthActions'
 import { Redirect } from 'react-router-dom';
-import Form from '../../Components/Auth/Form'
-import { getCompanies } from '../../Fetch/Companies'
+import Form from '../../Components/Auth/Form';
+import { getCompanies } from '../../Fetch/Companies';
+import { validateEmail } from '../../util';
 
 class Profile extends Component {
     state = {
         isEditing: false,
         fields: [
-            { id: "email", title: "E-mail", type: "email" },
+            { id: "email", title: "E-mail", type: "email", validation: () => validateEmail(this.state.user.email) },
             { id: "password", title: "Password", type: "password" },
             { id: "firstName", title: "First Name", type: "text" },
             { id: "lastName", title: "Last name", type: "text" },
