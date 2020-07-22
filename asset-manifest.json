@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/topics/static/css/main.056177a1.chunk.css",
-    "main.js": "/topics/static/js/main.714eaec4.chunk.js",
-    "main.js.map": "/topics/static/js/main.714eaec4.chunk.js.map",
-    "runtime-main.js": "/topics/static/js/runtime-main.518e20a8.js",
-    "runtime-main.js.map": "/topics/static/js/runtime-main.518e20a8.js.map",
-    "static/js/2.f334afb4.chunk.js": "/topics/static/js/2.f334afb4.chunk.js",
-    "static/js/2.f334afb4.chunk.js.map": "/topics/static/js/2.f334afb4.chunk.js.map",
-    "index.html": "/topics/index.html",
-    "precache-manifest.8e8a07206db9a51a44933419d64a3f2c.js": "/topics/precache-manifest.8e8a07206db9a51a44933419d64a3f2c.js",
-    "service-worker.js": "/topics/service-worker.js",
-    "static/css/main.056177a1.chunk.css.map": "/topics/static/css/main.056177a1.chunk.css.map",
-    "static/js/2.f334afb4.chunk.js.LICENSE.txt": "/topics/static/js/2.f334afb4.chunk.js.LICENSE.txt",
-    "static/media/delete.svg": "/topics/static/media/delete.12333ffe.svg",
-    "static/media/heart.svg": "/topics/static/media/heart.70ebbcd1.svg",
-    "static/media/heart_full.svg": "/topics/static/media/heart_full.a8cd76c1.svg"
+    "main.css": "/team_builder/static/css/main.056177a1.chunk.css",
+    "main.js": "/team_builder/static/js/main.b79b5d95.chunk.js",
+    "main.js.map": "/team_builder/static/js/main.b79b5d95.chunk.js.map",
+    "runtime-main.js": "/team_builder/static/js/runtime-main.f73fa546.js",
+    "runtime-main.js.map": "/team_builder/static/js/runtime-main.f73fa546.js.map",
+    "static/js/2.f334afb4.chunk.js": "/team_builder/static/js/2.f334afb4.chunk.js",
+    "static/js/2.f334afb4.chunk.js.map": "/team_builder/static/js/2.f334afb4.chunk.js.map",
+    "index.html": "/team_builder/index.html",
+    "precache-manifest.acf106ed2db570f0cd14afa5178336e9.js": "/team_builder/precache-manifest.acf106ed2db570f0cd14afa5178336e9.js",
+    "service-worker.js": "/team_builder/service-worker.js",
+    "static/css/main.056177a1.chunk.css.map": "/team_builder/static/css/main.056177a1.chunk.css.map",
+    "static/js/2.f334afb4.chunk.js.LICENSE.txt": "/team_builder/static/js/2.f334afb4.chunk.js.LICENSE.txt",
+    "static/media/delete.svg": "/team_builder/static/media/delete.12333ffe.svg",
+    "static/media/heart.svg": "/team_builder/static/media/heart.70ebbcd1.svg",
+    "static/media/heart_full.svg": "/team_builder/static/media/heart_full.a8cd76c1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.518e20a8.js",
+    "static/js/runtime-main.f73fa546.js",
     "static/js/2.f334afb4.chunk.js",
     "static/css/main.056177a1.chunk.css",
-    "static/js/main.714eaec4.chunk.js"
+    "static/js/main.b79b5d95.chunk.js"
   ]
 }
