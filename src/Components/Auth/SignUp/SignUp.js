@@ -8,7 +8,7 @@ import { validateEmail } from '../../../util';
 class SignUp extends Component {
     state = {
         fields: [
-            { id: "email", title: "E-mail", type: "email", validation: () => validateEmail(this.state.user.email) },
+            { id: "email", title: "E-mail", type: "email", validation: () => validateEmail(this.state.user.email)},
             { id: "password", title: "Password", type: "password" },
             { id: "firstName", title: "First Name", type: "text" },
             { id: "lastName", title: "Last name", type: "text" },
